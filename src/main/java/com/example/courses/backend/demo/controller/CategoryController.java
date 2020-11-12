@@ -5,7 +5,7 @@ import com.example.courses.backend.demo.service.CategoryService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {

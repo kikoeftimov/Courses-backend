@@ -66,7 +66,7 @@ public class CoursesServiceImpl implements CoursesService {
         c.setDescription(course.getDescription());
         c.setPrice(course.getPrice());
         c.setCategory(category);
-        c.setAuthor(course.getAuthor());
+        c.setAuthor(author);
 
         if (image != null && !image.getName().isEmpty()) {
             byte[] bytes = image.getBytes();
