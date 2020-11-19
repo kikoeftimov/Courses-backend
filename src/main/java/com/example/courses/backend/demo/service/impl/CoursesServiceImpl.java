@@ -3,11 +3,14 @@ package com.example.courses.backend.demo.service.impl;
 import com.example.courses.backend.demo.model.Author;
 import com.example.courses.backend.demo.model.Category;
 import com.example.courses.backend.demo.model.Course;
+import com.example.courses.backend.demo.model.exceptions.CourseAlreadyInCartException;
 import com.example.courses.backend.demo.model.exceptions.CourseNotFoundException;
 import com.example.courses.backend.demo.repository.CoursesRepository;
 import com.example.courses.backend.demo.service.AuthorService;
 import com.example.courses.backend.demo.service.CategoryService;
 import com.example.courses.backend.demo.service.CoursesService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,6 +34,11 @@ public class CoursesServiceImpl implements CoursesService {
     @Override
     public List<Course> findAll() {
         return this.coursesRepository.findAll();
+    }
+
+    @Override
+    public Page<Course> findPageable(Pageable pageable) {
+        return this.coursesRepository.findPageable(pageable);
     }
 
     @Override
@@ -79,6 +87,10 @@ public class CoursesServiceImpl implements CoursesService {
 
     @Override
     public void deleteById(Long id) {
+        Course course = this.findById(id);
+        if(course.getShoppingCarts().size() > 0){
+            throw new CourseAlreadyInCartException(course.getName());
+        }
         this.coursesRepository.deleteById(id);
     }
 

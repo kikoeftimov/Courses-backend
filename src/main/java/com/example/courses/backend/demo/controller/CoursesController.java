@@ -2,9 +2,12 @@ package com.example.courses.backend.demo.controller;
 
 import com.example.courses.backend.demo.model.Course;
 import com.example.courses.backend.demo.service.CoursesService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.List;
 
@@ -23,6 +26,11 @@ public class CoursesController {
     public List<Course> findAll(){
         return this.coursesService.findAll();
     }
+
+//    @GetMapping
+//    public Page<Course> findAll(@NotNull final Pageable pageable){
+//        return coursesService.findPageable(pageable);
+//    }
 
     @PostMapping
     public Course save(@RequestBody Course course, @RequestParam(required = false) MultipartFile image) throws IOException{

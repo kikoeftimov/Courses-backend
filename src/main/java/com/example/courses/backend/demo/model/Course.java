@@ -1,5 +1,7 @@
 package com.example.courses.backend.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -31,6 +33,10 @@ public class Course {
     @ManyToOne
     private Author author;
 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "courses", cascade = CascadeType.ALL)
+    private List<ShoppingCart> shoppingCarts;
+
     public Course() {
     }
 
@@ -45,6 +51,7 @@ public class Course {
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -88,5 +95,13 @@ public class Course {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public List<ShoppingCart> getShoppingCarts() {
+        return shoppingCarts;
+    }
+
+    public void setShoppingCarts(List<ShoppingCart> shoppingCarts) {
+        this.shoppingCarts = shoppingCarts;
     }
 }
