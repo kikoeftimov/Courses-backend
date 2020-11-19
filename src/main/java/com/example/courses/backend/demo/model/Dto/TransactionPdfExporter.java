@@ -1,5 +1,6 @@
-package com.example.courses.backend.demo.model;
+package com.example.courses.backend.demo.model.Dto;
 
+import com.example.courses.backend.demo.model.Transaction;
 import com.lowagie.text.*;
 import com.lowagie.text.Font;
 import com.lowagie.text.pdf.*;

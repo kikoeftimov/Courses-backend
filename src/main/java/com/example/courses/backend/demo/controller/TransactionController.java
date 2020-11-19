@@ -1,8 +1,8 @@
 package com.example.courses.backend.demo.controller;
 
 import com.example.courses.backend.demo.model.Transaction;
-import com.example.courses.backend.demo.model.TransactionExcelExporter;
-import com.example.courses.backend.demo.model.TransactionPdfExporter;
+import com.example.courses.backend.demo.model.Dto.TransactionExcelExporter;
+import com.example.courses.backend.demo.model.Dto.TransactionPdfExporter;
 import com.example.courses.backend.demo.service.TransactionService;
 import com.lowagie.text.DocumentException;
 import org.springframework.web.bind.annotation.*;

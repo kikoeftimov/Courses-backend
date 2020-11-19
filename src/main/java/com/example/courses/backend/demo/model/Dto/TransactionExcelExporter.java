@@ -1,5 +1,6 @@
-package com.example.courses.backend.demo.model;
+package com.example.courses.backend.demo.model.Dto;
 
+import com.example.courses.backend.demo.model.Transaction;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
@@ -85,7 +86,7 @@ public class TransactionExcelExporter {
             cell.setCellStyle(style);
 
             cell = row.createCell(3);
-            cell.setCellValue(transaction.getLocalDateTime().toString());
+            cell.setCellValue(transaction.getLocalDateTime());
             sheet.autoSizeColumn(3);
             cell.setCellStyle(style);
 

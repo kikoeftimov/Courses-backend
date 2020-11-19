@@ -1,5 +1,7 @@
 package com.example.courses.backend.demo.model;
 
+import com.example.courses.backend.demo.model.Enum.ERole;
+
 import javax.persistence.*;
 
 @Entity

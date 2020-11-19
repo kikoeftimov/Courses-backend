@@ -1,6 +1,6 @@
 package com.example.courses.backend.demo.controller;
 
-import com.example.courses.backend.demo.model.ERole;
+import com.example.courses.backend.demo.model.Enum.ERole;
 import com.example.courses.backend.demo.model.Role;
 import com.example.courses.backend.demo.model.User;
 import com.example.courses.backend.demo.payload.request.LoginRequest;

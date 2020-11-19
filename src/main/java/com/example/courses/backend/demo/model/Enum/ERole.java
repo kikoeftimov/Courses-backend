@@ -1,4 +1,4 @@
-package com.example.courses.backend.demo.model;
+package com.example.courses.backend.demo.model.Enum;
 
 public enum ERole {
     ROLE_USER,

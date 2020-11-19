@@ -2,7 +2,6 @@ package com.example.courses.backend.demo.repository;
 
 import com.example.courses.backend.demo.model.Enum.CartStatus;
 import com.example.courses.backend.demo.model.ShoppingCart;
-import com.example.courses.backend.demo.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
