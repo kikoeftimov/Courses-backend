@@ -58,6 +58,10 @@ public class TransactionExcelExporter {
         cell = row.createCell(5);
         cell.setCellValue("Username");
         cell.setCellStyle(style);
+
+        cell = row.createCell(6);
+        cell.setCellValue("Courses");
+        cell.setCellStyle(style);
     }
 
     private void writeDataRows(){
@@ -98,6 +102,11 @@ public class TransactionExcelExporter {
             cell = row.createCell(5);
             cell.setCellValue(transaction.getUser().getUsername());
             sheet.autoSizeColumn(5);
+            cell.setCellStyle(style);
+
+            cell = row.createCell(6);
+            cell.setCellValue(transaction.getNames().toString());
+            sheet.autoSizeColumn(6);
             cell.setCellStyle(style);
         }
     }

@@ -26,6 +26,9 @@ public class Transaction {
 
     private String email;
 
+    @ElementCollection
+    private List<String> names;
+
     public Transaction() {
     }
 
@@ -83,5 +86,13 @@ public class Transaction {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<String> getNames() {
+        return names;
+    }
+
+    public void setNames(List<String> names) {
+        this.names = names;
     }
 }

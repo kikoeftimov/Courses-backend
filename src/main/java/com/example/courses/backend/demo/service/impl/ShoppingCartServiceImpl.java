@@ -126,7 +126,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             transaction.setShoppingCart(shoppingCart);
             transaction.setAmount((int) price);
             transaction.setUser(user);
+            List<String> helper = new ArrayList<>();
+            for (Course c : shoppingCart.getCourses() ) {
+                helper.add(c.getName());
+                System.out.println(transaction.getNames());
+            }
 
+            transaction.setNames(helper);
             LocalDateTime timeNow = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             String formattedDate = timeNow.format(formatter);

@@ -43,6 +43,9 @@ public class TransactionPdfExporter {
         cell.setPhrase(new Phrase("Username", font));
         table.addCell(cell);
 
+        cell.setPhrase(new Phrase("Courses", font));
+        table.addCell(cell);
+
     }
 
     private void writeTableData(PdfPTable table) {
@@ -53,6 +56,7 @@ public class TransactionPdfExporter {
             table.addCell(transaction.getLocalDateTime());
             table.addCell(transaction.getShoppingCart().getStatus().toString());
             table.addCell(transaction.getUser().getUsername());
+            table.addCell(transaction.getNames().toString());
         }
     }
 
@@ -70,9 +74,9 @@ public class TransactionPdfExporter {
 
         document.add(p);
 
-        PdfPTable table = new PdfPTable(6);
+        PdfPTable table = new PdfPTable(7);
         table.setWidthPercentage(100f);
-        table.setWidths(new float[] {1.5f, 3.5f, 1.5f, 2.5f, 2.0f, 2.0f});
+        table.setWidths(new float[] {1.5f, 3.5f, 1.5f, 2.5f, 2.0f, 2.0f, 3.0f});
         table.setSpacingBefore(10);
 
         writeTableHeader(table);
