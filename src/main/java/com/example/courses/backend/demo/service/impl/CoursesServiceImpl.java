@@ -89,13 +89,13 @@ public class CoursesServiceImpl implements CoursesService {
     public void deleteById(Long id) {
         Course course = this.findById(id);
         if(course.getShoppingCarts().size() > 0){
-            throw new CourseAlreadyInCartException(course.getName());
+            throw new CourseAlreadyInCartException(course.getId());
         }
         this.coursesRepository.deleteById(id);
     }
 
     @Override
-    public List<Course> searchCourses(String term) {
-        return this.coursesRepository.searchCourses(term);
+    public List<Course> searchCourses(String searchText) {
+        return this.coursesRepository.searchCourses(searchText);
     }
 }

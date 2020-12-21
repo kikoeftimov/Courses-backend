@@ -22,5 +22,5 @@ public interface CoursesService {
 
     void deleteById(Long id);
 
-    List<Course> searchCourses(String term);
+    List<Course> searchCourses(String searchText);
 }

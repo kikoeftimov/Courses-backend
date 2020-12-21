@@ -75,6 +75,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     public ShoppingCart addCourseToCart(String username, Long courseId) {
         ShoppingCart shoppingCart = this.getActiveShoppingCart(username);
         Course course = this.coursesService.findById(courseId);
+        for (Course c1: shoppingCart.getCourses()) {
+            if(c1.getId().equals(courseId)){
+                throw new CourseAlreadyInCartException(courseId);
+            }
+        }
         shoppingCart.getCourses().add(course);
         return this.shoppingCartRepository.save(shoppingCart);
     }

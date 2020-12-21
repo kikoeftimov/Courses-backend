@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.METHOD_NOT_ALLOWED)
 public class CourseAlreadyInCartException extends RuntimeException{
-    public CourseAlreadyInCartException(String name) {
-        super(String.format("Course %s already in shopping cart!", name));
+    public CourseAlreadyInCartException(Long id) {
+        super(String.format("Course %d already in shopping cart!", id));
     }
 }

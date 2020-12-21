@@ -13,8 +13,8 @@ import java.util.List;
 @Repository
 public interface CoursesRepository extends JpaRepository<Course, Long> {
 
-    @Query("select c from Course c where c.name like :term or c.description like :term")
-    List<Course> searchCourses(@Param("term")String term);
+    @Query("select c from Course c where c.name like :searchText or c.description like :searchText or c.author.firstName like :searchText or c.author.lastName like :searchText or c.category.name like :searchText")
+    List<Course> searchCourses(@Param("searchText")String searchText);
 
     @Query("select c from Course c ORDER BY c.name ASC")
     Page<Course> findPageable(Pageable pageable);

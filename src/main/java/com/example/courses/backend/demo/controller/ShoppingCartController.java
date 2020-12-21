@@ -2,6 +2,7 @@ package com.example.courses.backend.demo.controller;
 
 import com.example.courses.backend.demo.model.Dto.ChargeRequest;
 import com.example.courses.backend.demo.model.ShoppingCart;
+import com.example.courses.backend.demo.model.exceptions.CourseAlreadyInCartException;
 import com.example.courses.backend.demo.security.services.UserDetailsImpl;
 import com.example.courses.backend.demo.service.ShoppingCartService;
 import com.stripe.exception.StripeException;
@@ -35,9 +36,8 @@ public class ShoppingCartController {
             return this.shoppingCartService.addCourseToCart(username, courseId);
         }
         catch (RuntimeException e){
-            e.getLocalizedMessage();
+            throw new CourseAlreadyInCartException(courseId);
         }
-        return null;
     }
 
     @DeleteMapping("/{courseId}")
